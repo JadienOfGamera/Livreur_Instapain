@@ -40,19 +40,19 @@ module.exports = {
                 response = `¡ǝɔɐɔᴉɟɟǝ sɹnoɾnoʇ sᴉɐɯ 'ǝldɯᴉs 'snoʌ ɹnod **${chosenBread}** u∩ ¡ ʇnɐɟ lᴉ,nb ǝɔ ʇnoʇ ʇǝ ǝnbᴉssɐlɔ-oɔᴉssɐlɔ un 'sᴉoɟɹɐԀ..... Oula, j'ai la tête qui tourne moi...!`;
                 break;
             case 'Chasseur':
-                response = `Je vois que vous avez besoin d'énergie vous... Allez, un petit **${chosenBread}** pour vous ! Ne vous plaignez pas d'avoir faim après 🫡`;
+                response = `Je vois que vous avez besoin d'énergie vous... Allez, un petit **${chosenBread}** vous ferra du bien ! Ne vous plaignez pas d'avoir faim après 🥴`;
                 break;
             case 'Ruche':
-                response = `Une **${chosenBread}** pour vous! Sucré et plein de miel, un vrai régal pour les gourmands! Il ne devrait plus avoir d'abeilles, mais au pire, ça ferra des protéines... !\n\n\n(j'plaisante)`;
+                response = `Une **${chosenBread}** pour vous! Sucré et plein de miel, un vrai régal pour les gourmands! Il ne devrait plus avoir d'abeilles, mais au pire, ça ferra des protéines... !\n\n\n\n(j'plaisante)`;
                 break;
             case 'Kyrofortant':
                 response = `Oh, un **${chosenBread}**? Aucun soucis ! Vous allez apprécier son confort ^^.\nNe vous endormez pas dessus par contre!`;
                 break;
             case 'Gigotant':
-                response = `Oh oh... Vous êtes du genre téméraire on dirait... Pas pour me déplaire (:\nLe **${chosenBread}** va vous donner du fil à retordre, mais je sais que vous allez en triompher!`;
+                response = `Oh oh... Vous êtes du genre téméraire on dirait... Pas pour me déplaire :3\nLe **${chosenBread}** va vous donner du fil à retordre, mais je sais que vous allez en triompher!`;
                 break;
             case 'Cosmique':
-                response = `Un **${chosenBread}** pour vous! Appréciez sa construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit!`;
+                response = `Et un **${chosenBread}** pour vous! Appréciez sa construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit!`;
                 break;
             default:
                 response = `Que c\'est étonnant... Je ne connais pas ce pain... Devrais-je en parler à Certos? 🤔`;
@@ -64,7 +64,7 @@ module.exports = {
             response += "EHEHEHEHEH\n";
         }
         else if (cible) {
-            response += `\nCe pain est destiné à <@${cible.id}>. Quelle gentillesse! J'en suis presque jaloux...! 🥖`;
+            response += `\n\nCe pain est destiné à <@${cible.id}>. Quelle gentillesse! J'en suis presque jaloux...! 🥖`;
         }
 
         try {

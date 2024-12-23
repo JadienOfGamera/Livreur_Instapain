@@ -1,7 +1,7 @@
 {
-  "name": "discord-bot-templates",
-  "version": "1.0.0",
-  "description": "",
+  "name": "livreur-de-pain",
+  "version": "0.1.0",
+  "description": "Il aime le pain et le livrer pour donner le osurire aux gens :D",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
