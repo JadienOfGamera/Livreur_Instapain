@@ -1,4 +1,4 @@
-import bread_db from ".../db/bread_db.json" with { type: "json" };
+import bread_db from "../../db/bread_db.json" with { type: "json" };
 const axios = require('axios');
 const { SlashCommandBuilder } = require('discord.js');
 
