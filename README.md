@@ -1,4 +1,3 @@
 # 🥖 Le Livreur de Pain 🥖
-Il aime le pain, le livrer, et faire plaisir aux gens :)
 
-Travail chez Instapain depuis sa création
+Il aime le pain, le livrer, et faire plaisir aux gens :D
