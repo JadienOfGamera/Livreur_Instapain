@@ -1,9 +1,9 @@
 import bread_db from "../db/bread_db.json" with { type: "json" };
 const axios = require('axios');
-const { SlashCommandBuilder, resolveGuildTemplateCode } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 
 // La collection de PAINs :D
-const breads = ['Pain', 'niaP', 'Chasseur', 'Ruche', 'Kyrofortant', 'Gigotant', 'Cosmique'];
+const breads = Object.keys(bread_db);
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,7 +15,7 @@ module.exports = {
                 .setDescription('Commande un pain en particulier')
                 .setRequired(false)
                 .addChoices(
-                    ...breads.map(bread => ({ name: bread, value: bread })) // Liste les pains possibles
+                    ...breads.map(bread => ({ name: bread_db[bread].bread_name, value: bread_db[bread].bread_name })) // Liste les pains possibles
                 )
         )
         .addUserOption(option =>
