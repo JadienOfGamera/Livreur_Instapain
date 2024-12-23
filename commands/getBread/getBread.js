@@ -1,7 +1,9 @@
+import bread_db from "../db/bread_db.json" with { type: "json" };
 const axios = require('axios');
 const { SlashCommandBuilder, resolveGuildTemplateCode } = require('discord.js');
 
-const breads = ['Pain', 'Niap', 'Chasseur', 'Ruche', 'Kyrofortant', 'Gigotant', 'Cosmique'];
+// La collection de PAINs :D
+const breads = ['Pain', 'niaP', 'Chasseur', 'Ruche', 'Kyrofortant', 'Gigotant', 'Cosmique'];
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -13,7 +15,7 @@ module.exports = {
                 .setDescription('Commande un pain en particulier')
                 .setRequired(false)
                 .addChoices(
-                    ...breads.map(bread => ({ name: bread, value: bread })) // Génération automatique des choix
+                    ...breads.map(bread => ({ name: bread, value: bread })) // Liste les pains possibles
                 )
         )
         .addUserOption(option =>
@@ -34,7 +36,7 @@ module.exports = {
             case 'Pain':
                 response = `Parfois, un classico-classique est tout ce qu'il faut ! Un **${chosenBread}** pour vous, simple, mais toujours efficace! 😁`;
                 break;
-            case 'Niap':
+            case 'niaP':
                 response = `¡ǝɔɐɔᴉɟɟǝ sɹnoɾnoʇ sᴉɐɯ 'ǝldɯᴉs 'snoʌ ɹnod **${chosenBread}** u∩ ¡ ʇnɐɟ lᴉ,nb ǝɔ ʇnoʇ ʇǝ ǝnbᴉssɐlɔ-oɔᴉssɐlɔ un 'sᴉoɟɹɐԀ..... Oula, j'ai la tête qui tourne moi...!`;
                 break;
             case 'Chasseur':
@@ -53,12 +55,12 @@ module.exports = {
                 response = `Un **${chosenBread}** pour vous! Appréciez sa construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit!`;
                 break;
             default:
-                response = `🍞 Pain commandé : **${chosenBread}**. Bon appétit !`;
+                response = `Que c\'est étonnant... Je ne connais pas ce pain... Devrais-je en parler à Certos? 🤔`;
                 break;
         }
 
         // Ajout du message pour une cible si précisée
-        if (cible.id === 1319003825331376268) {
+        if (cible.id === '<@Livreur Instapain') {
             response += "EHEHEHEHEH\n";
         }
         else if (cible) {
@@ -66,7 +68,6 @@ module.exports = {
         }
 
         try {
-            // Répond au message
             await interaction.reply(response);
         } catch (error) {
             console.error('Erreur lors de la commande du pain :', error);
