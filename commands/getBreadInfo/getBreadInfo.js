@@ -1,9 +1,14 @@
-import bread_db from "../db/bread_db.json" with { type: "json" };
 const axios = require('axios');
-const { SlashCommandBuilder, resolveGuildTemplateCode } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+
+const fs = require('fs');
+const path = require('path');
+
+const dbPath = path.join(__dirname, '../../db/bread_db.json');
 
 // La collection de PAINs :D
-const breads = ['Pain', 'niaP', 'Chasseur', 'Ruche', 'Kyrofortant', 'Gigotant', 'Cosmique'];
+const breadData = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
+const breads = Object.keys(breadData);
 
 module.exports = {
     data: new SlashCommandBuilder()

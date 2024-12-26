@@ -5,6 +5,8 @@ const path = require('path');
 const BOT_TOKEN = process.env.CLIENT_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 
+console.log(BOT_TOKEN)
+
 const deploy = async () => {
     const commands = [];
     // Grab all the command files from the commands directory you created earlier

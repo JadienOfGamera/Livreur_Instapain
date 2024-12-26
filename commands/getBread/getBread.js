@@ -1,9 +1,14 @@
-import bread_db from "../../db/bread_db.json" with { type: "json" };
 const axios = require('axios');
 const { SlashCommandBuilder } = require('discord.js');
 
+const fs = require('fs');
+const path = require('path');
+
+const dbPath = path.join(__dirname, '../../db/bread_db.json');
+
 // La collection de PAINs :D
-const breads = Object.keys(bread_db);
+const breadData = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
+const breads = Object.keys(breadData);
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -15,7 +20,7 @@ module.exports = {
                 .setDescription('Commande un pain en particulier')
                 .setRequired(false)
                 .addChoices(
-                    ...breads.map(bread => ({ name: bread_db[bread].bread_name, value: bread_db[bread].bread_name })) // Liste les pains possibles
+                    ...breads.map(bread => ({ name: breadData[bread].bread_name, value: breadData[bread].bread_name })) // Liste les pains possibles
                 )
         )
         .addUserOption(option =>
