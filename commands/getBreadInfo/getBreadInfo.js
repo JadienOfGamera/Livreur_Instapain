@@ -4,8 +4,6 @@ const fs = require("fs");
 const path = require("path");
 
 const dbPath = path.join(__dirname, "../../db/bread_db.json");
-
-// La collection de pains
 const breadData = JSON.parse(fs.readFileSync(dbPath, "utf8"));
 const breads = Object.keys(breadData);
 
@@ -19,47 +17,71 @@ module.exports = {
                 .setDescription("Récupère les informations du pain")
                 .setRequired(true)
                 .addChoices(
-                    ...breads.map(bread => ({ name: bread, value: bread })) // Liste les pains possibles
+                    ...breads.map(bread => ({ name: bread, value: bread }))
                 )
         ),
-    async execute(interaction) {
-        // Récupère le pain sélectionné
+    async execute(interaction, client) {
         const breadName = interaction.options.getString("pain");
-        const bread = breadData[breadName]; // Récupère l'objet correspondant dans breadData
+        const bread = breadData[breadName];
 
-        // Vérifie si le pain existe dans la base de données
         if (!bread) {
             await interaction.reply({
-                content: "Que c'est étonnant... Je ne connais pas ce pain... Devrais-je en parler à Certos? 🤔",
+                content: "Je ne connais pas ce pain. Peut-être que Certos pourra m'aider. 🤔",
                 ephemeral: true,
             });
             return;
         }
 
-        // Création de l'embed
         const embed = new EmbedBuilder()
             .setColor("#eec07b")
             .setTitle(`${bread.emoji} ${bread.bread_name}`)
             .setDescription(bread.description)
             .setFooter({
                 text: `Écrit par : ${bread.writter}`,
-                iconURL: "https://i.imgur.com/0fJgG0Y.png", // Une icône optionnelle
+                iconURL: "https://i.imgur.com/0fJgG0Y.png",
             });
 
-        // Ajout de l'image si elle existe
         if (bread.image_link && bread.image_link !== "null") {
             embed.setImage(bread.image_link);
         }
 
-        // Envoie de l'embed
-        try {
-            await interaction.reply({ embeds: [embed] });
-        } catch (error) {
-            console.error("Erreur lors de l'envoi de l'embed :", error);
-            await interaction.reply({
-                content: "Une erreur est survenue en récupérant les informations du pain. Veuillez réessayer plus tard.",
-                ephemeral: true,
-            });
-        }
+        const message = await interaction.reply({ embeds: [embed], fetchReply: true });
+
+        await message.react("🥖");
+        const filter = (reaction, user) =>
+            reaction.emoji.name === "🥖" && user.id !== client.user.id;
+
+        const collector = message.createReactionCollector({ filter, time: 60000 });
+
+        collector.on("collect", async (reaction, user) => {
+            try {
+                const command = client.commands.get("commande");
+                if (!command) {
+                    console.error("Commande /commande introuvable !");
+                    return;
+                }
+
+                const fakeInteraction = {
+                    options: {
+                        getString: () => breadName,
+                        getUser: () => user, 
+                    },
+                    reply: async response => {
+                        await interaction.followUp({
+                            content: response,
+                            ephemeral: true,
+                        });
+                    },
+                };
+
+                await command.execute(fakeInteraction);
+            } catch (error) {
+                console.error("Erreur lors de l'exécution de la commande :", error);
+            }
+        });
+
+        collector.on("end", () => {
+            message.reactions.removeAll().catch(console.error);
+        });
     },
 };
