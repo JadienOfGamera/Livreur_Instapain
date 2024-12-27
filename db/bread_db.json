@@ -5,15 +5,16 @@
         "image_link":"null",
         "description":"*La base de tout les autres pains.*\n\nLe Pain est... un pain oui en effet. Il est simple, n'est pas aussi exotique que le Gigotant, et son goût n'explose pas en bouche comme la Ruche. Alors, pourquoi est-il le pain le plus consommé de Instapain? Car le Pain est reconnu pour sa simplicité, tout en restant excellent en bouche. La richesse que l'on peut lui trouver est reconnu à travers toutes les cultures, et son histoire à travers les générations de boulanger en fait le pain le plus mythique de tout Manaonie.",
         "emoji":":french_bread:",
-        "writter":"null"
+        "writter":"Jadien",
+        "commande":"Parfois, un classico-classique est tout ce qu'il faut ! Un **Pain** pour vous, simple, mais toujours efficace! 😁"
     },
     "Gigotant":{
         "bread_name":"Gigotant",
         "creator_id":2,
         "image_link":"null",
-        "description":"*Non! Tu ne peux pas créer un pain qui peut assomer les clients!\nAhah, bread goes brrrrrrr\n--Discussion entre Karou et Koulos, deux boulangers d'Instapain*\n\nAh, le Gigotant... L'un des pains les plus dangereux (si ce n'est le seul?) de toute la boulangerie Instapain. Grâce à une certaine levure, le Gigotant est alimenté par le désir de se mouvoir. Il n'est pas vivant, bien sûr, mais il est comme animé, voulant s'échapper de son sort funeste de plat. Pouvant atteindre une vitesse proche de Mach 0.5, il est capable de briser des côtes. On pourrait se demander pourquoi se pain est en vente libre. Et bien la raison est que Certos Qalis considère que tout pain mérite d'être mangé, et puis qu'il y avait des fous assez téméraires pour s'essayer à manger ce pain.",
+        "description":"*-Non! Tu ne peux pas créer un pain qui peut assomer les clients!\n-Ahah, bread goes brrrrrrr\n>Discussion entre Karou et Koulos, deux boulangers d'Instapain*\n\nAh, le Gigotant... L'un des pains les plus dangereux (si ce n'est le seul?) de toute la boulangerie Instapain. Grâce à une certaine levure, le Gigotant est alimenté par le désir de se mouvoir. Il n'est pas vivant, bien sûr, mais il est comme animé, voulant s'échapper de son sort funeste de plat. Pouvant atteindre une vitesse proche de Mach 0.5, il est capable de briser des côtes. On pourrait se demander pourquoi se pain est en vente libre. Et bien la raison est que Certos Qalis considère que tout pain mérite d'être mangé, et puis qu'il y avait des fous assez téméraires pour s'essayer à manger ce pain.",
         "emoji":"null",
-        "writter":"null"
+        "writter":"Mae"
     },
     "niaP":{
         "bread_name":"niaP",
@@ -21,7 +22,8 @@
         "image_link":"null",
         "description":"null",
         "emoji":"null",
-        "writter":"null"
+        "writter":"null",
+        "commande":"¡ǝɔɐɔᴉɟɟǝ sɹnoɾnoʇ sᴉɐɯ 'ǝldɯᴉs 'snoʌ ɹnod **Niap** u∩ ¡ ʇnɐɟ lᴉ,nb ǝɔ ʇnoʇ ʇǝ ǝnbᴉssɐlɔ-oɔᴉssɐlɔ un 'sᴉoɟɹɐԀ..... Oula, j'ai la tête qui tourne moi...!"
     },
     "Kyrofortant":{
         "bread_name":"Kyrofortant",
@@ -29,7 +31,8 @@
         "image_link":"null",
         "description":"null",
         "emoji":"null",
-        "writter":"null"
+        "writter":"null",
+        "commande":"Oh, un **Kyrofortant**? Aucun soucis ! Vous allez apprécier son confort ^^.\nNe vous endormez pas dessus par contre!"
     },
     "Ruche":{
         "bread_name":"Ruche",
@@ -37,7 +40,8 @@
         "image_link":"null",
         "description":"null",
         "emoji":"null",
-        "writter":"null"
+        "writter":"null",
+        "commande":"Une **Ruche** pour vous! Sucré et plein de miel, un vrai régal pour les gourmands! Il ne devrait plus avoir d'abeilles, mais au pire, ça ferra des protéines... !\n\n\n\n(j'plaisante)"
     },
     "Chasseur":{
         "bread_name":"Chasseur",
@@ -45,7 +49,8 @@
         "image_link":"null",
         "description":"null",
         "emoji":"null",
-        "writter":"null"
+        "writter":"null",
+        "commande":"Je vois que vous avez besoin d'énergie vous... Allez, un petit **Chasseur** vous ferra du bien ! Ne vous plaignez pas d'avoir faim après 🥴"
     },
     "Cosmique":{
         "bread_name":"Cosmique",
@@ -53,6 +58,7 @@
         "image_link":"null",
         "description":"null",
         "emoji":"null",
-        "writter":"null"
+        "writter":"null",
+        "commande":"Et un **${chosenBread}** pour vous! Appréciez sa construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit!"
     }
 }

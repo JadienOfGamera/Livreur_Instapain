@@ -1,83 +1,93 @@
-const axios = require('axios');
-const { SlashCommandBuilder } = require('discord.js');
+const axios = require("axios");
+const { SlashCommandBuilder } = require("discord.js");
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const dbPath = path.join(__dirname, '../../db/bread_db.json');
+const dbPath = path.join(__dirname, "../../db/bread_db.json");
 
 // La collection de PAINs :D
-const breadData = JSON.parse(fs.readFileSync(dbPath, 'utf8'))
+const breadData = JSON.parse(fs.readFileSync(dbPath, "utf8"));
 const breads = Object.keys(breadData);
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('commande')
-        .setDescription('Commande un pain 🥖')
-        .addStringOption(option =>
+        .setName("commande")
+        .setDescription("Commande un pain 🥖")
+        .addStringOption((option) =>
             option
-                .setName('pain')
-                .setDescription('Commande un pain en particulier')
+                .setName("pain")
+                .setDescription("Commande un pain en particulier")
                 .setRequired(false)
                 .addChoices(
-                    ...breads.map(bread => ({ name: breadData[bread].bread_name, value: breadData[bread].bread_name })) // Liste les pains possibles
-                )
+                    ...breads.map((bread) => ({
+                        name: breadData[bread].bread_name,
+                        value: breadData[bread].bread_name,
+                    })), // Liste les pains possibles
+                ),
         )
-        .addUserOption(option =>
+        .addUserOption((option) =>
             option
-                .setName('cible')
-                .setDescription('Commande un pain pour quelqu\'un, la chance ! :D')
-                .setRequired(false)
+                .setName("cible")
+                .setDescription(
+                    "Commande un pain pour quelqu'un, la chance ! :D",
+                )
+                .setRequired(false),
         ),
     async execute(interaction) {
-        const bread = interaction.options.getString('pain');
-        const cible = interaction.options.getUser('cible');
+        const bread = interaction.options.getString("pain");
+        const cible = interaction.options.getUser("cible");
 
         //Si pas de pain particulier
-        const chosenBread = bread || breads[Math.floor(Math.random() * breads.length)];
-
+        const chosenBread =
+            bread || breads[Math.floor(Math.random() * breads.length)];
+        
         let response;
         switch (chosenBread) {
-            case 'Pain':
-                response = `Parfois, un classico-classique est tout ce qu'il faut ! Un **${chosenBread}** pour vous, simple, mais toujours efficace! 😁`;
+            case "Pain":
+                response = breadData[chosenBread].commande;
                 break;
-            case 'niaP':
-                response = `¡ǝɔɐɔᴉɟɟǝ sɹnoɾnoʇ sᴉɐɯ 'ǝldɯᴉs 'snoʌ ɹnod **${chosenBread}** u∩ ¡ ʇnɐɟ lᴉ,nb ǝɔ ʇnoʇ ʇǝ ǝnbᴉssɐlɔ-oɔᴉssɐlɔ un 'sᴉoɟɹɐԀ..... Oula, j'ai la tête qui tourne moi...!`;
+            case "niaP":
+                response = breadData[chosenBread].commande;
                 break;
-            case 'Chasseur':
-                response = `Je vois que vous avez besoin d'énergie vous... Allez, un petit **${chosenBread}** vous ferra du bien ! Ne vous plaignez pas d'avoir faim après 🥴`;
+            case "Chasseur":
+                response = breadData[chosenBread].commande;
                 break;
-            case 'Ruche':
-                response = `Une **${chosenBread}** pour vous! Sucré et plein de miel, un vrai régal pour les gourmands! Il ne devrait plus avoir d'abeilles, mais au pire, ça ferra des protéines... !\n\n\n\n(j'plaisante)`;
+            case "Ruche":
+                response = breadData[chosenBread].commande;
                 break;
-            case 'Kyrofortant':
-                response = `Oh, un **${chosenBread}**? Aucun soucis ! Vous allez apprécier son confort ^^.\nNe vous endormez pas dessus par contre!`;
+            case "Kyrofortant":
+                response = breadData[chosenBread].commande;
                 break;
-            case 'Gigotant':
-                response = `Oh oh... Vous êtes du genre téméraire on dirait... Pas pour me déplaire :3\nLe **${chosenBread}** va vous donner du fil à retordre, mais je sais que vous allez en triompher!`;
+            case "Gigotant":
+                response = breadData[chosenBread].commande;
                 break;
-            case 'Cosmique':
-                response = `Et un **${chosenBread}** pour vous! Appréciez sa construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit!`;
+            case "Cosmique":
+                response = breadData[chosenBread].commande;
                 break;
             default:
                 response = `Que c\'est étonnant... Je ne connais pas ce pain... Devrais-je en parler à Certos? 🤔`;
                 break;
         }
-
+        
         // Ajout du message pour une cible si précisée
-        if (cible.id === '<@Livreur Instapain') {
-            response += "EHEHEHEHEH\n";
-        }
-        else if (cible) {
+        if (
+            cible && // Vérifie que cible n'est pas null ou undefined
+            typeof cible.id !== "undefined" &&
+            cible.id === "1319003825331376268"
+        ) {
+            response += "\nAttends un peu... Mais... C'est pour moi...? 😳 Je... Je n'ai pas les mots... Merci... ❤\n";
+        } else if (cible) {
             response += `\n\nCe pain est destiné à <@${cible.id}>. Quelle gentillesse! J'en suis presque jaloux...! 🥖`;
         }
 
         try {
             await interaction.reply(response);
         } catch (error) {
-            console.error('Erreur lors de la commande du pain :', error);
+            console.error("Erreur lors de la commande du pain :", error);
             await interaction.reply({
-                content: 'Que c\'est étonnant... Je ne connais pas ce pain... Devrais-je en parler à Certos? 🤔',
+                content:
+                    "Que c'est étonnant... Je ne connais pas ce pain... Devrais-je en parler à Certos? 🤔",
                 ephemeral: true,
             });
         }
