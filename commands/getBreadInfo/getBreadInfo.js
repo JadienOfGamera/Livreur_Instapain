@@ -45,6 +45,14 @@ module.exports = {
             embed.setImage(bread.image_link);
         }
 
+        if (bread.creator_id && bread.creator_id !== "null") {
+            embed.addFields({
+                name: "Inventé par",
+                value: bread.creator_id,
+                inline: true,
+            });
+        }
+
         const message = await interaction.reply({ embeds: [embed], fetchReply: true });
 
         await message.react("🥖");
@@ -64,7 +72,7 @@ module.exports = {
                 const fakeInteraction = {
                     options: {
                         getString: () => breadName,
-                        getUser: () => user, 
+                        getUser: () => user,
                     },
                     reply: async response => {
                         await interaction.followUp({

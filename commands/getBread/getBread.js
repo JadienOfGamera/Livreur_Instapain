@@ -72,7 +72,7 @@ module.exports = {
         
         // Ajout du message pour une cible si précisée
         if (
-            cible && // Vérifie que cible n'est pas null ou undefined
+            cible &&
             typeof cible.id !== "undefined" &&
             cible.id === "1319003825331376268"
         ) {
