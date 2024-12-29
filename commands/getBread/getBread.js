@@ -27,7 +27,7 @@ module.exports = {
                     ...breads.map((bread) => ({
                         name: breadData[bread].bread_name,
                         value: breadData[bread].bread_name,
-                    })), // Liste les pains possibles
+                    })),
                 ),
         )
         .addUserOption((option) =>
@@ -42,7 +42,6 @@ module.exports = {
         const bread = interaction.options.getString("pain");
         const cible = interaction.options.getUser("cible");
 
-        // Si pas de pain particulier, sélectionne un pain au hasard
         const chosenBread = bread || breads[Math.floor(Math.random() * breads.length)];
 
         const breadInfo = breadData[chosenBread];
@@ -56,14 +55,12 @@ module.exports = {
 
         let response = breadInfo.commande;
 
-        // Ajout du message pour une cible si précisée
         if (cible?.id === "1319003825331376268") {
             response += "\nAttends un peu... Mais... C'est pour moi...? 😳 Je... Je n'ai pas les mots... Merci... ❤\n";
         } else if (cible) {
             response += `\n\nCe pain est destiné à <@${cible.id}>. Quelle gentillesse! J'en suis presque jaloux...! 🥖`;
         }
 
-        // Ajout du pain à l'utilisateur
         addBreadToUser(interaction?.user?.id || interaction.client.user.id, chosenBread);
 
         try {
@@ -85,7 +82,6 @@ function addBreadToUser(userId, breadName) {
         return;
     }
 
-    // Ajoute l'utilisateur si celui-ci n'existe pas
     if (!userBreads[userId]) {
         userBreads[userId] = { totalBreads: 0 };
     }

@@ -22,42 +22,35 @@ module.exports = {
     const userId = cible ? cible.id : interaction.user.id;
 
     const userData = userBreads[userId];
-    
+
     if (!userData) {
       await interaction.reply({
-        content: `Aucune donnée trouvée pour <@${userId}>. Je n'ai pas mémoire de lui avoir livré du pain. 🤔`,
+        content: `Aucune donnée trouvée pour <@${userId}>. Je n'ai pas mémoire que cette personne ait déjà commandé un pain. 🤔`,
         ephemeral: true,
       });
       return;
     }
 
-    // Récupère le total des pains commandés
+    const embedColor = userData.color || "#eec07b";
     const totalBreads = userData.totalBreads || 0;
-    const name = cible ? cible.username : interaction.user.username
 
-    // Construction de l'embed
+    const breadDetails = Object.entries(userData)
+      .filter(([key]) => key !== "totalBreads" && key !== "color")
+      .map(([breadName, quantity]) => `${breadName} : ${quantity}`)
+      .join("\n");
+
     const embed = new EmbedBuilder()
-      .setColor(0x0099ff)
-      .setTitle(`Stats de PAINS 🥖`)
+      .setColor(embedColor)
       .setAuthor({
         name: cible ? cible.username : interaction.user.username,
         iconURL: cible ? cible.displayAvatarURL() : interaction.user.displayAvatarURL(),
       })
-      .setDescription(
-        `Récapitulatif des pains commandés ^^ :\n` +
-          `**Total de pains commandés : ${totalBreads}**\n`
-      )
-      //.setThumbnail("https://cdn-icons-png.flaticon.com/512/3075/3075977.png") // Icône de pain (facultatif)
-
-    for (const breadName in userData) {
-      if (breadName !== "totalBreads") {
-        embed.addFields({
-          name: breadName,
-          value: `${userData[breadName]} commande(s)`,
-          inline: true,
-        });
-      }
-    }
+      .setTitle(`Stats :`)
+      .setDescription(`Cet utilisateur a commandé **${totalBreads} pain(s)** !`)
+      .addFields({
+        name: "Détails des pains commandés :",
+        value: breadDetails || "Aucun pain commandé pour l'instant. 😔",
+      });
 
     await interaction.reply({ embeds: [embed] });
   },
