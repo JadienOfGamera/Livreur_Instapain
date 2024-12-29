@@ -3,9 +3,18 @@ const { EmbedBuilder } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 
+// Chargement des données
 const dbPath = path.join(__dirname, "../../db/bread_db.json");
 const breadData = JSON.parse(fs.readFileSync(dbPath, "utf8"));
 const breads = Object.keys(breadData);
+
+// Mapping des creator_id vers baker_name
+const creatorMapping = {
+    Certos: "Certos Qalis",
+    Mae: "Mae Leven",
+    Jadien: "Jadien Colm",
+    // Ajoute ici d'autres correspondances si nécessaires
+};
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -34,10 +43,10 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setColor("#eec07b")
-            .setTitle(`${bread.emoji} ${bread.bread_name}`)
-            .setDescription(bread.description)
+            .setTitle(`${bread.emoji || "🥖"} ${bread.bread_name}`)
+            .setDescription(bread.description || "Aucune description disponible pour ce pain.")
             .setFooter({
-                text: `Écrit par : ${bread.writter}`,
+                text: `Écrit par : ${bread.writter || "Inconnu"}`,
                 iconURL: "https://i.imgur.com/0fJgG0Y.png",
             });
 
@@ -46,9 +55,10 @@ module.exports = {
         }
 
         if (bread.creator_id && bread.creator_id !== "null") {
+            const bakerName = creatorMapping[bread.creator_id] || "Créateur inconnu";
             embed.addFields({
                 name: "Inventé par",
-                value: bread.creator_id,
+                value: bakerName,
                 inline: true,
             });
         }

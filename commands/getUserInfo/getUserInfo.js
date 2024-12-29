@@ -4,9 +4,6 @@ const path = require("path");
 
 const dbPathUser = path.join(__dirname, "../../db/bread_user.json");
 
-// La collection de USERs :D
-const userBreads = JSON.parse(fs.readFileSync(dbPathUser, "utf-8"));
-
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("info")
@@ -21,6 +18,8 @@ module.exports = {
     const cible = interaction.options.getUser("cible");
     const userId = cible ? cible.id : interaction.user.id;
 
+    // Relire le fichier JSON à chaque exécution
+    const userBreads = JSON.parse(fs.readFileSync(dbPathUser, "utf-8"));
     const userData = userBreads[userId];
 
     if (!userData) {

@@ -14,7 +14,8 @@
         "image_link":"null",
         "description":"*- Non! Tu ne peux pas créer un pain qui peut assomer les clients!\n- Ahah, bread goes brrrrrrr\n>Discussion entre Karou et Koulos, deux boulangers d'Instapain*\n\nAh, le Gigotant... L'un des pains les plus dangereux (si ce n'est le seul?) de toute la boulangerie Instapain. Grâce à une certaine levure, le Gigotant est alimenté par le désir de se mouvoir. Il n'est pas vivant, bien sûr, mais il est comme animé, voulant s'échapper de son sort funeste de plat. Pouvant atteindre une vitesse proche de Mach 0.5, il est capable de briser des côtes. On pourrait se demander pourquoi se pain est en vente libre. Et bien la raison est que Certos Qalis considère que tout pain mérite d'être mangé, et puis qu'il y avait des fous assez téméraires pour s'essayer à manger ce pain.",
         "emoji":"null",
-        "writter":"Mae"
+        "writter":"Mae",
+        "commande":"Oh oh... Vous êtes du genre téméraire on dirait... Pas pour me déplaire 😏 Le **Gigotant** va vous donner du fil à retordre, mais je sais que vous allez en triompher!"
     },
     "niaP":{
         "bread_name":"niaP",
@@ -59,6 +60,6 @@
         "description":"null",
         "emoji":"null",
         "writter":"null",
-        "commande":"Et un **Cosmique** pour vous! Appréciez la construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit!"
+        "commande":"Et un **Cosmique** pour vous! Appréciez la construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit! ✨"
     }
 }
