@@ -27,12 +27,20 @@ for (const folder of commandFolders) {
 	}
 }
 
-//Register our commands
 deployCommands();
 
-
 client.once(Events.ClientReady, c => {
-	console.log(`Ready! Logged in as ${c.user.tag}`);
+	console.log(`Connecté sur ${c.user.tag}`);
+
+	c.user.setPresence({
+		status: "online",
+		activities: [
+				{
+						name: "En livraison 🥖",
+						type: "PLAYING",
+				},
+		],
+	});
 });
 
 client.on(Events.InteractionCreate, async interaction => {

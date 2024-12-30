@@ -3,18 +3,11 @@ const { EmbedBuilder } = require("discord.js");
 const fs = require("fs");
 const path = require("path");
 
-// Chargement des données
-const dbPath = path.join(__dirname, "../../db/bread_db.json");
-const breadData = JSON.parse(fs.readFileSync(dbPath, "utf8"));
+const breadDbPath = path.join(__dirname, "../../db/bread_db.json");
+const breadCreatorPath = path.join(__dirname, "../../db/bread_creator.json");
+const breadData = JSON.parse(fs.readFileSync(breadDbPath, "utf8"));
+const bakerData = JSON.parse(fs.readFileSync(breadCreatorPath, "utf8"));
 const breads = Object.keys(breadData);
-
-// Mapping des creator_id vers baker_name
-const creatorMapping = {
-    Certos: "Certos Qalis",
-    Mae: "Mae Leven",
-    Jadien: "Jadien Colm",
-    // Ajoute ici d'autres correspondances si nécessaires
-};
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -41,6 +34,9 @@ module.exports = {
             return;
         }
 
+        const creatorId = bread.creator_id;
+        const baker = bakerData[creatorId] || { baker_name: "Créateur inconnu" };
+
         const embed = new EmbedBuilder()
             .setColor("#eec07b")
             .setTitle(`${bread.emoji || "🥖"} ${bread.bread_name}`)
@@ -54,52 +50,57 @@ module.exports = {
             embed.setImage(bread.image_link);
         }
 
-        if (bread.creator_id && bread.creator_id !== "null") {
-            const bakerName = creatorMapping[bread.creator_id] || "Créateur inconnu";
-            embed.addFields({
-                name: "Inventé par",
-                value: bakerName,
-                inline: true,
+        embed.addFields({
+            name: "Inventé par",
+            value: baker.baker_name || "Créateur inconnu",
+            inline: true,
+        });
+
+        try {
+            const message = await interaction.reply({ embeds: [embed], fetchReply: true });
+
+            await message.react("🥖");
+            const filter = (reaction, user) =>
+                reaction.emoji.name === "🥖" && user.id !== client.user.id;
+
+            const collector = message.createReactionCollector({ filter, time: 60000 });
+
+            collector.on("collect", async (reaction, user) => {
+                try {
+                    const command = client.commands.get("commande");
+                    if (!command) {
+                        console.error("Commande /commande introuvable !");
+                        return;
+                    }
+
+                    const fakeInteraction = {
+                        options: {
+                            getString: () => breadName,
+                            getUser: () => user,
+                        },
+                        reply: async response => {
+                            await interaction.followUp({
+                                content: response,
+                                ephemeral: true,
+                            });
+                        },
+                    };
+
+                    await command.execute(fakeInteraction);
+                } catch (error) {
+                    console.error("Erreur lors de l'exécution de la commande :", error);
+                }
+            });
+
+            collector.on("end", () => {
+                message.reactions.removeAll().catch(console.error);
+            });
+        } catch (error) {
+            console.error("Erreur lors de l'envoi de l'embed :", error);
+            await interaction.reply({
+                content: "Une erreur est survenue en récupérant les informations du pain. Veuillez réessayer plus tard.",
+                ephemeral: true,
             });
         }
-
-        const message = await interaction.reply({ embeds: [embed], fetchReply: true });
-
-        await message.react("🥖");
-        const filter = (reaction, user) =>
-            reaction.emoji.name === "🥖" && user.id !== client.user.id;
-
-        const collector = message.createReactionCollector({ filter, time: 60000 });
-
-        collector.on("collect", async (reaction, user) => {
-            try {
-                const command = client.commands.get("commande");
-                if (!command) {
-                    console.error("Commande /commande introuvable !");
-                    return;
-                }
-
-                const fakeInteraction = {
-                    options: {
-                        getString: () => breadName,
-                        getUser: () => user,
-                    },
-                    reply: async response => {
-                        await interaction.followUp({
-                            content: response,
-                            ephemeral: true,
-                        });
-                    },
-                };
-
-                await command.execute(fakeInteraction);
-            } catch (error) {
-                console.error("Erreur lors de l'exécution de la commande :", error);
-            }
-        });
-
-        collector.on("end", () => {
-            message.reactions.removeAll().catch(console.error);
-        });
     },
 };

@@ -18,7 +18,6 @@ module.exports = {
     const cible = interaction.options.getUser("cible");
     const userId = cible ? cible.id : interaction.user.id;
 
-    // Relire le fichier JSON à chaque exécution
     const userBreads = JSON.parse(fs.readFileSync(dbPathUser, "utf-8"));
     const userData = userBreads[userId];
 
