@@ -1,11 +1,12 @@
 {
   "192574959191719937": {
-    "totalBreads": 8,
+    "totalBreads": 9,
     "Kyrofortant": 2,
     "Pain": 4,
     "Gigotant": 1,
     "Chasseur": 1,
-    "color": "#c81d1d"
+    "color": "#c81d1d",
+    "Ruche": 1
   },
   "351839722835935244": {
     "totalBreads": 14,
