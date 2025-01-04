@@ -3,7 +3,7 @@
         "bread_name":"Pain",
         "creator_id":"Certos",
         "image_link":"",
-        "description":"*La base de tout les autres pains.*\n\nLe Pain est... un pain oui en effet. Il est simple, n'est pas aussi exotique que le Gigotant, et son goût n'explose pas en bouche comme la Ruche. Alors, pourquoi est-il le pain le plus consommé de Instapain? Car le Pain est reconnu pour sa simplicité, tout en restant excellent en bouche. La richesse que l'on peut lui trouver est reconnu à travers toutes les cultures, et son histoire à travers les générations de boulanger en fait le pain le plus mythique de tout Manaonie.",
+        "description":"*La base de tout les autres pains.*\n\nLe Pain est... un pain oui en effet. Il est simple, n'est pas aussi exotique que le Gigotant, et son goût n'explose pas en bouche comme la Ruche. Alors, pourquoi est-il le pain le plus consommé de Instapain? Car le Pain est reconnu pour sa simplicité, tout en restant excellent en bouche. La richesse que l'on peut lui trouver est reconnu à travers toutes les cultures, et son histoire à travers les générations de boulangers en fait le pain le plus mythique de tout Manaonie.",
         "emoji":":french_bread:",
         "writter":"Jadien",
         "commande":"Parfois, un classico-classique est tout ce qu'il faut ! Un **Pain** pour vous, simple, mais toujours efficace! 😁"
@@ -30,9 +30,9 @@
         "bread_name":"Kyrofortant",
         "creator_id":"Karou",
         "image_link":"",
-        "description":"",
+        "description":"*- zzzzzzzzzzzzzzzzz...*\n>Client random ayant commandé un Kyrofortant\n\nCet univers est injuste. Bah oui quoi, il va bientôt s'écrouler sur lui même, c'est chaud quand même...! C'était la conclusion que Karou Karlos, l'un des membres fondateurs de Instapain. Contrairement à son frère Koulos, il n'est pas du genre optimiste. Il est toujours du genre à chercher le réconfort dans quelque chose ou quelqu'un. Alors, quand Certos lui a demandé de créer un pain signature, il ne voulait pas d'un second pain destructeur de table et d'os, comme a pu faire son frère. Il réflichit... et réflichit... et recontra un certain être fait de slime. Il semblait... dormir, et Karou fut intrigué par la boule de slime. Il le tatta et sentit un certain confort. C'était là son idée ! Un pain moilleux, somptueux, qui garde une certaine chaleur même après plusieurs heures hors du four. Le succès du Kyrofortant n'est pas tant dans son goût, mais simplement car en étant simplement à ses côtés, on ne pense plus à nos soucis, et on se retrouve dans un confort incroyable.",
         "emoji":"",
-        "writter":"",
+        "writter":"Jadien",
         "commande":"Oh, un **Kyrofortant**? Aucun soucis ! Vous allez apprécier son confort ^^.\nNe vous endormez pas dessus par contre!"
     },
     "Ruche":{
@@ -42,24 +42,33 @@
         "description":"",
         "emoji":"",
         "writter":"",
-        "commande":"Une **Ruche** pour vous! Sucré et plein de miel, un vrai régal pour les gourmands! Il ne devrait plus avoir d'abeilles, mais au pire, ça ferra des protéines... !\n\n\n\n(j'plaisante)"
+        "commande":"Une **Ruche** pour vous! Sucré et plein de miel, un vrai régal pour les gourmands! Il ne devrait plus avoir d'abeilles, mais au pire, ça ferra des protéines... !\n\n\n\n\n(j'plaisante)"
+    },
+    "Painini":{
+        "bread_name":"Painini",
+        "creator_id":"Duikko",
+        "image_link":"",
+        "description":"",
+        "emoji":"",
+        "writter":"",
+        "commande":"Flemme d'attendre? Je peux comprendre ^^. Un **Painini** pour vous! Faites gaffe à ne pas vous brûler!"
     },
     "Chasseur":{
         "bread_name":"Chasseur",
         "creator_id":"Maron",
         "image_link":"",
-        "description":"",
+        "description":"*- Allez Gabirel, fini ton assiette.\n- Mais Maman, je n'ai pas faim...\n- Oh toi, tu as encore manger un Chasseur avant diner...\n>Discussion entre un fils et sa mère à un repas.*\n\nVous savez, quand on a un métier qui nous fait rencontrer beaucoup de monde, ou qui nous fait bouger, ou encore tout simplement par flemme, il est difficile de trouver un moment pour préparer sa nourriture de la journée. Par ce problème, Maron ne mangeait pas beaucoup lors de ces déplacements d'Ambassadeur. Alors un jour, il décida de revisiter un traditionnel pain de sa planète. Avec un petit tour de secrets, il avait mit au point un pain qui lui permettait de subvenir à ses besoins caloriques de toute une journée. La légende raconte que c'est par ce pain que Certos Qalis avait décidé de reprendre son activité de boulanger. Le Chasseur est par contre, un pain à consommer avec modération. Si on en mange trop, on risque de digérer un peu longtemps, alors, faites attention à vous !",
         "emoji":"",
-        "writter":"",
-        "commande":"Je vois que vous avez besoin d'énergie vous... Allez, un petit **Chasseur** vous ferra du bien ! Ne vous plaignez pas d'avoir faim après 🥴"
+        "writter":"Jadien",
+        "commande":"Je vois que vous avez besoin d'énergie vous... Allez, un petit **Chasseur** vous ferra du bien ! Vous risquez de ne plus avoir faim pendant un petit temps par contre. ^^"
     },
     "Cosmique":{
         "bread_name":"Cosmique",
-        "creator_id":"",
+        "creator_id":"Tous",
         "image_link":"",
-        "description":"",
+        "description": "*- Wow. T'as vraiment l'air d'être ailleurs meuf.\n- Je... j'ai la tête dans les étoiles, je crois.\n>Discussion autour d'une cliente dégustant un Cosmique*\n\nMarre de votre train-train quotidien ? Envie d'apporter du changement dans votre existence monotone ? Besoin d'aller accomplir vos rèves ? N'attendez plus ! Prenre votre destin en main ! Arrétez de vous complaire dans votre médiocrité et visez plus haut... droit vers les étoiles ! Avec ce nouveau pain directement inspiré du vaisseau le plus beau, le fameux Tisseur d'Étoiles, vous allez vous sentir comme un chef ! Commandez un Cosmique dès maintenant et laissez vous emporter par ces saveurs tout droit issues des meilleures cultures au sein du TAC !\n\nAttention : De par la complexité de réalisation, un temps d'attente conséquent est à prévoir avant que votre commande soit terminée. De plus, ne prêtez pas attention aux ralements du boulanger devant la satisfaire.",
         "emoji":"",
-        "writter":"",
+        "writter":"Mae",
         "commande":"Et un **Cosmique** pour vous! Appréciez la construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit! ✨"
     }
 }

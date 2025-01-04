@@ -1,11 +1,20 @@
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config();
 const deployCommands = require('./deploy/deployCommands');
 const { Client, Collection, Events, GatewayIntentBits, REST, Routes } = require('discord.js');
 
 const BOT_TOKEN = process.env.CLIENT_TOKEN;
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages,] });
+const client = new Client({
+		intents: [
+				GatewayIntentBits.Guilds,
+				GatewayIntentBits.GuildMessages,
+				GatewayIntentBits.MessageContent,
+				GatewayIntentBits.GuildMessageReactions,
+				GatewayIntentBits.GuildMembers,
+		],
+});
 
 client.commands = new Collection();
 
@@ -32,15 +41,7 @@ deployCommands();
 client.once(Events.ClientReady, c => {
 	console.log(`Connecté sur ${c.user.tag}`);
 
-	c.user.setPresence({
-		status: "online",
-		activities: [
-				{
-						name: "En livraison 🥖",
-						type: "PLAYING",
-				},
-		],
-	});
+	c.user.setActivity("En livraison 🥖", { type: "PLAYING" });
 });
 
 client.on(Events.InteractionCreate, async interaction => {

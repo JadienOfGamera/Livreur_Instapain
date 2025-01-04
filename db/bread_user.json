@@ -1,12 +1,13 @@
 {
   "192574959191719937": {
-    "totalBreads": 9,
+    "totalBreads": 10,
     "Kyrofortant": 2,
     "Pain": 4,
     "Gigotant": 1,
     "Chasseur": 1,
     "color": "#c81d1d",
-    "Ruche": 1
+    "Ruche": 1,
+    "Painini": 1
   },
   "351839722835935244": {
     "totalBreads": 14,
@@ -20,13 +21,14 @@
     "color": "#86194f"
   },
   "1318955997095526500": {
-    "totalBreads": 6993,
+    "totalBreads": 7992,
     "Pain": 999,
     "Gigotant": 999,
     "niaP": 999,
     "Kyrofortant": 999,
     "Ruche": 999,
     "Chasseur": 999,
-    "Cosmique": 999
+    "Cosmique": 999,
+    "Painini": 999
   }
 }

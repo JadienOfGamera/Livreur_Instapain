@@ -9,7 +9,7 @@
     "Maron":{
         "baker_name":"Maron *Delz*-Poken",
         "creator_id":"Maron",
-        "description":"null",
+        "description":"*Vous savez, dans la vie, y'a 3 choses qui priment: la famille, les copains, et le plaisir de partager du temps avec eux. Alors si vous avez du pain pour associer le tout, ma foi, c'est le combo gagnant!*\n\nLe métier d'Ambassadeur n'est pas un métier facile dans le Traité. Il y'a beaucoup de stresses dû aux missions de relations qu'il faut créer, satisfaire et entretenir. Il n'est pas rare qu'au bout une vie de travail, que certains se convertissent. Maron était l'un deux. Son travail était reconnu parmis la communauté, et était salué pour son génie social et politique. Pourtant, bien qu'il aimait communiquer avec tous, il était aussi fatigué. Jeune, il souhaitait devenir boulanger, là était sa réelle vocation. Mais par manque de temps, et aussi par difficulté de changer de vie, il continua. Alors, lorsqu'il rencontra Certos Qalis lors d'une de ses missions diplotatiques, il vit une occassion. Ils s'associèrent, et créa Instapain. Maron retrouva une seconde jeunesse, et s'investit désormais tout les jours à rendre cette boulangerie vivante, grâce à sa bonne nature et son humeur joyeuse.",
         "affiliation":"Le Traité des Arches Confédérés",
         "image_link":"null"
     },
@@ -32,6 +32,13 @@
         "creator_id":"Bacha",
         "description":"null",
         "affiliation":"La Félicité Astrale",
+        "image_link":"null"
+    },
+    "Duikko":{
+        "baker_name":"Duikko Deijjla Traaseu",
+        "creator_id":"Duikko",
+        "description":"null",
+        "affiliation":"null",
         "image_link":"null"
     }
 }
