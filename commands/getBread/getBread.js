@@ -88,13 +88,6 @@ function addBreadToUser(userId, breadName) {
 
     userBreads[userId][breadName] = (userBreads[userId][breadName] || 0) + 1;
     userBreads[userId].totalBreads += 1;
-
-    /*console.log(
-        `Total des pains pour l'utilisateur ${userId}: ${userBreads[userId].totalBreads}`
-    );
-    console.log(
-        `Nombre de ${breadName} commandé: ${userBreads[userId][breadName]}`
-    );*/
     
     fs.writeFileSync(dbPathUser, JSON.stringify(userBreads, null, 2));
 }

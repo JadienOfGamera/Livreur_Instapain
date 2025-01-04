@@ -16,29 +16,29 @@
     "Karou":{
         "baker_name":"Karou Karlos",
         "creator_id":"Karou",
-        "description":"null",
+        "description":"*La vie, il faut la savourer comme il se doit*\n\n",
         "affiliation":"Le Traité des Arches Confédérés",
         "image_link":"null"
     },
     "Koulos":{
         "baker_name":"Koulos Karlos",
         "creator_id":"Koulos",
-        "description":"null",
+        "description":"*La vie, faut la prendre tranquiiiiiiille... et avec du fun évidemment*\n\n",
         "affiliation":"Le Traité des Arches Confédérés",
         "image_link":"null"
     },
     "Bacha":{
         "baker_name":"Her-Bacha",
         "creator_id":"Bacha",
-        "description":"null",
-        "affiliation":"La Félicité Astrale",
+        "description":"*uwu*\n\nBacha vient d'une famille des Artisans Boulangers de Frent-Ce. Petite, elle est tombée dans la pâte du pain et de l'art de l'entretenir. C'est quelqu'un de très simple, et comme beaucoup de son jeune âge avec ce genre de passion, elle a entendue parlé de Instapain et de Certos Qalis. Lorsque lui et Maron ont rencontrés les doyens des Artisans, Bacha était là. Elle n'a pas pu entendre toute la conversation, mais elle a vite compris que les deux parties cherchaient à parfaire leurs créations. L'un des doyens proposa quelque chose qui n'a jamais été fait à cette époque : que l'un des artisans rejoigne Instapain. Certos et Maron ont très vite accepté, trouvant l'idée très bonne. Bacha a, bien évidemment comme ses collègues, supplié le doyen de la choisir. Certos était amusé de cette situation, et choisisa quelques élus, dont Bacha. Ces Artisans rejoignirent Instapain pour quelques temps, et Bacha redoubla d'efforts. Après quelques mois, ils repartirent chez eux, à l'exception de Bacha. Les doyens et Certos furent surpris de la vivacité d'une jeune boulangère comme elle, et son pain signature \"La Ruche\" avait conquis tout le monde. Certos décida de garder la petite, en pretextant un échange culturel entre les deux entités de façon durable. La vérité était qu'il aime beaucoup le miel.",
+        "affiliation":"Les Artisans Boulangers de Frent-Ce",
         "image_link":"null"
     },
     "Duikko":{
         "baker_name":"Duikko Deijjla Traaseu",
         "creator_id":"Duikko",
         "description":"null",
-        "affiliation":"null",
+        "affiliation":"Indépendant",
         "image_link":"null"
     }
 }
