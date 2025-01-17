@@ -41,12 +41,12 @@ module.exports = {
 
     let updatedColor = color;
     if (/^#[0-9A-Fa-f]{6}$/.test(color)) {
-      console.log("Format correct et contient '#'.");
+      console.log("Format correct et contient '#'. " + color);
     } else if (/^[0-9A-Fa-f]{6}$/.test(color)) {
-      console.log("Format correct, mais il manque le '#'.");
+      //console.log("Format correct, mais il manque le '#'.");
       updatedColor = "#" + color;
     } else {
-      console.log("Le format est incorrect.");
+      //console.log("Le format est incorrect.");
       return interaction.reply({
         content: `Commande refusée :/. ${color} n'est pas une valeur en hexadécimale.`,
         ephemeral: true,

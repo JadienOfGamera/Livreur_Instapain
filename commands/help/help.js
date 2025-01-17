@@ -10,7 +10,7 @@ module.exports = {
 
     const helpEmbed = new EmbedBuilder()
       .setColor('#eec07b')
-      .setTitle(':french_baguette: Liste des commandes :french_baguette:')
+      .setTitle('<:french_baguette:> Liste des commandes <:french_baguette:>')
       .setDescription('Voici la liste des commandes disponibles que je peux performer ^^ :');
 
     commands.forEach(command => {

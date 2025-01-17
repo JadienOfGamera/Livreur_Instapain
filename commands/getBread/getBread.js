@@ -43,7 +43,7 @@ module.exports = {
         const cible = interaction.options.getUser("cible");
 
         const chosenBread = bread || breads[Math.floor(Math.random() * breads.length)];
-
+        console.log(chosenBread)
         const breadInfo = breadData[chosenBread];
         if (!breadInfo) {
             await interaction.reply({
@@ -57,6 +57,8 @@ module.exports = {
 
         if (cible?.id === "1319003825331376268") {
             response += "\nAttends un peu... Mais... C'est pour moi...? 😳 Je... Je n'ai pas les mots... Merci... ❤\n";
+        } else if (bread === "Pain-Etoilé" && cible) {
+            response += `\n\nHey, <@${cible.id}>, <@${interaction?.user?.id}> souhaites partager un Etoilé avec toi, profitez de ce moment ^^ !`
         } else if (cible) {
             response += `\n\nCe pain est destiné à <@${cible.id}>. Quelle gentillesse! J'en suis presque jaloux...! 🥖`;
         }

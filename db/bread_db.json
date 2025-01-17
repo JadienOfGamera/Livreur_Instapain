@@ -70,5 +70,14 @@
         "emoji":"<:Cosmique:1325114922224586863>",
         "writter":"Mae",
         "commande":"Et un **Cosmique** pour vous! Appréciez la construction soignée du plus beau pain de Instapain, prêt à conquérir votre appétit! ✨"
+    },
+    "Pain-Etoilé":{
+        "bread_name":"Pain-Etoilé",
+        "creator_id":"",
+        "image_link":"",
+        "description": "*-*\n\n",
+        "emoji":"",
+        "writter":"Mannt",
+        "commande":"Parcourez les étoiles avec ce **Pain-Etoilé**! ✨\nPensez à le partager, il est fait pour ça! ;)"
     }
 }

@@ -21,15 +21,16 @@
     "color": "#86194f"
   },
   "1318955997095526500": {
-    "totalBreads": 7992,
-    "Pain": 999,
+    "totalBreads": 7998,
+    "Pain": 1001,
     "Gigotant": 999,
     "niaP": 999,
     "Kyrofortant": 999,
-    "Ruche": 999,
+    "Ruche": 1000,
     "Chasseur": 999,
     "Cosmique": 999,
     "Painini": 999,
-    "color": "#eec07b"
+    "color": "#eec07b",
+    "Pain-Etoilé": 3
   }
 }

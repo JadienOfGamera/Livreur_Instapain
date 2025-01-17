@@ -60,13 +60,12 @@ module.exports = {
             const message = await interaction.reply({ embeds: [embed], fetchReply: true });
 
             await message.react("🥖");
-            const filter = (reaction, user) =>
-                reaction.emoji.name === "🥖" && user.id !== client.user.id;
-
-            const collector = message.createReactionCollector({ filter, time: 60000 });
+            const collector = message.createReactionCollector({ time: 60000 });
 
             collector.on("collect", async (reaction, user) => {
                 try {
+                    if (!reaction || !user || user.bot) return;
+
                     const command = client.commands.get("commande");
                     if (!command) {
                         console.error("Commande /commande introuvable !");
@@ -78,22 +77,28 @@ module.exports = {
                             getString: () => breadName,
                             getUser: () => user,
                         },
-                        reply: async response => {
+                        user: user,
+                        reply: async (response) => {
                             await interaction.followUp({
-                                content: response,
+                                content: `${user.username} a réagi. Commande initiée par ${interaction.user.username}.\n\n${response}`,
                                 ephemeral: true,
                             });
                         },
+                        client: client,
                     };
 
                     await command.execute(fakeInteraction);
                 } catch (error) {
-                    console.error("Erreur lors de l'exécution de la commande :", error);
+                    console.error("Erreur lors de la gestion de la réaction :", error);
                 }
             });
 
             collector.on("end", () => {
-                message.reactions.removeAll().catch(console.error);
+                try {
+                    message.reactions.removeAll();
+                } catch (err) {
+                    console.error("Erreur lors de la suppression des réactions :", err);
+                }
             });
         } catch (error) {
             console.error("Erreur lors de l'envoi de l'embed :", error);

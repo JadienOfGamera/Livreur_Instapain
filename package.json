@@ -1,6 +1,6 @@
 {
   "name": "livreur-de-pain",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Il aime le pain et le livrer pour donner le sourire aux gens :D",
   "main": "app.js",
   "scripts": {
