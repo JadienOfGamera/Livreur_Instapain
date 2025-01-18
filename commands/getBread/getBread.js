@@ -57,7 +57,7 @@ module.exports = {
 
         if (cible?.id === "1319003825331376268") {
             response += "\nAttends un peu... Mais... C'est pour moi...? 😳 Je... Je n'ai pas les mots... Merci... ❤\n";
-        } else if (bread === "Pain-Etoilé" && cible) {
+        } else if (bread === "Pain-Étoile" && cible) {
             response += `\n\nHey, <@${cible.id}>, <@${interaction?.user?.id}> souhaites partager un Etoilé avec toi, profitez de ce moment ^^ !`
         } else if (cible) {
             response += `\n\nCe pain est destiné à <@${cible.id}>. Quelle gentillesse! J'en suis presque jaloux...! 🥖`;
