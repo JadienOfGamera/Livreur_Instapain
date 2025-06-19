@@ -63,7 +63,7 @@ module.exports = {
             response += `\n\nCe pain est destiné à <@${cible.id}>. Quelle gentillesse! J'en suis presque jaloux...! 🥖`;
         }
 
-        await addBreadToUser(interaction.user, breadDoc.bread_name);
+        await addBreadToUser(cible ?? interaction.user, breadDoc.bread_name);
 
         try {
             await interaction.reply(response);

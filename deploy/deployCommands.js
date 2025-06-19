@@ -7,7 +7,6 @@ const BOT_TOKEN = process.env.CLIENT_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 
 const deploy = async () => {
-    // Charge les choix dynamiques depuis la BDD
     await loadBreadChoices();
     const breadsChoices = getBreadChoices();
 
