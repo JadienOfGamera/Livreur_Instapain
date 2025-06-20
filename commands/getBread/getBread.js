@@ -9,7 +9,7 @@ const data = new SlashCommandBuilder()
         option
             .setName("pain")
             .setDescription("Commande un pain en particulier")
-            .setRequired(false) // pas de choices ici, on les ajoutera dynamiquement
+            .setRequired(false)
     )
     .addUserOption((option) =>
         option
@@ -18,7 +18,7 @@ const data = new SlashCommandBuilder()
             .setRequired(false),
     );
 
-function injectChoices(breadsChoices) {
+function getBreadChoices(breadsChoices) {
     const option = data.options.find(opt => opt.name === "pain");
     if (option) {
         option.addChoices(...breadsChoices);
@@ -27,7 +27,7 @@ function injectChoices(breadsChoices) {
 
 module.exports = {
     data,
-    injectChoices,
+    getBreadChoices,
     async execute(interaction) {
         const breadNameInput = interaction.options.getString("pain");
         const cible = interaction.options.getUser("cible");
@@ -80,8 +80,8 @@ module.exports = {
 async function addBreadToUser(user, breadName) {
     try {
         let userDoc = await User.findOne({ user_id: user.id });
-        const breadDoc = await Bread.findOne({ bread_name: breadName });
-        if (!breadDoc) {
+        const bread = await Bread.findOne({ bread_name: breadName });
+        if (!bread) {
             console.warn(`Pain ${breadName} non trouvé en base.`);
             return;
         }
@@ -91,24 +91,24 @@ async function addBreadToUser(user, breadName) {
                 user_id: user.id,
                 user_name: user.username,
                 user_level: 0,
-                user_bread_prefered: breadDoc._id,
+                user_bread_prefered: bread._id,
                 user_bread_total: 1,
-                user_bread_consumption: [{ bread: breadDoc._id, count: 1 }],
+                user_bread_consumption: [{ bread: bread._id, count: 1 }],
                 user_color: "#eec07b"
             });
         } else {
             userDoc.user_bread_total += 1;
 
-            const existing = userDoc.user_bread_consumption.find(c => c.bread.equals(breadDoc._id));
+            const existing = userDoc.user_bread_consumption.find(c => c.bread.equals(bread._id));
             if (existing) {
                 existing.count += 1;
             } else {
-                userDoc.user_bread_consumption.push({ bread: breadDoc._id, count: 1 });
+                userDoc.user_bread_consumption.push({ bread: bread._id, count: 1 });
             }
         }
 
         await userDoc.save();
-        console.log(breadName + ` ajouté pour l'utilisateur ${user.username} (${user.id})`);
+        //console.log(breadName + ` ajouté pour l'utilisateur ${user.username} (${user.id})`);
     } catch (err) {
         console.error("Erreur lors de l'ajout du pain à l'utilisateur :", err);
     }

@@ -1,8 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-const fs = require("fs");
-const path = require("path");
-
-const dbPathUser = path.join(__dirname, "../../db/bread_user.json");
+const User = require("../../models/User");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -18,16 +15,22 @@ module.exports = {
     const cible = interaction.options.getUser("cible");
     const userId = cible ? cible.id : interaction.user.id;
 
-    const userBreads = JSON.parse(fs.readFileSync(dbPathUser, "utf-8"));
+    const userBreads = await User.findOne({ user_id: user.id });
     const userData = userBreads[userId];
 
     if (!userData) {
-      await interaction.reply({
-        content: `Aucune donnée trouvée pour <@${userId}>. Je n'ai pas mémoire que cette personne ait déjà commandé un pain. 🤔`,
-        ephemeral: true,
-      });
-      return;
+        userData = new User({
+           user_id: cible.id,
+           user_name: cible.username,
+           user_level: 0,
+           user_bread_prefered: '',
+           user_bread_total: 1,
+           user_bread_consumption: [],
+           user_color: "#eec07b"
+         });
     }
+    
+    await userData.save();
 
     const embedColor = userData.color || "#eec07b";
     const totalBreads = userData.totalBreads || 0;
